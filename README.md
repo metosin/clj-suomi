@@ -1,10 +1,10 @@
 # clj-suomi [![Build Status](https://travis-ci.org/metosin/clj-suomi.svg)](https://travis-ci.org/metosin/clj-suomi)
 
-A Clojure library designed to access Finnish code sets.
-
 [![Clojars Project](http://clojars.org/metosin/clj-suomi/latest-version.svg)](http://clojars.org/metosin/clj-suomi)
 
-- [API Docs](http://metosin.github.io/clj-suomi/)
+A Clojure library designed to access Finnish code sets.
+
+[**API Docs**](http://metosin.github.io/clj-suomi/)
 
 ## Features
 

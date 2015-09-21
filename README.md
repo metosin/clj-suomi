@@ -1,4 +1,4 @@
-# clj-suomi [![Build Status](https://travis-ci.org/metosin/clj-suomi.svg)](https://travis-ci.org/metosin/clj-suomi)
+# clj-suomi [![Circle CI](https://circleci.com/gh/metosin/clj-suomi.svg?style=shield)](https://circleci.com/gh/metosin/clj-suomi)
 
 [![Clojars Project](http://clojars.org/metosin/clj-suomi/latest-version.svg)](http://clojars.org/metosin/clj-suomi)
 

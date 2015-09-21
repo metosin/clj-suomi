@@ -1,4 +1,4 @@
-# clj-suomi
+# clj-suomi [![Build Status](https://travis-ci.org/metosin/clj-suomi.svg)](https://travis-ci.org/metosin/clj-suomi)
 
 A Clojure library designed to access Finnish code sets.
 

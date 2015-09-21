@@ -10,6 +10,8 @@ test:
   override:
     - lein test-out junit $CIRCLE_TEST_REPORTS/lein/results.xml
     - lein cloverage --coveralls
+  post:
+    - ./scripts/coveralls.sh
 deployment:
   master:
     branch: master

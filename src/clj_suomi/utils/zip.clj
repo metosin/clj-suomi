@@ -3,27 +3,29 @@
 
 (defn first-entry
   "Select the first entry for reading."
-  [zip-file-or-is]
-  (when-not (.getNextEntry zip-file-or-is)
+  [^ZipInputStream zip-is]
+  (when-not (.getNextEntry zip-is)
     (throw (IllegalStateException. "Entry not found.")))
-  zip-file-or-is)
+  zip-is)
 
 (defn find-entry
-  "Select an entry for reading by predicate."
-  [zip-file-or-is p]
+  "Select an entry for reading by predicate.
+
+   Predicate is called with entry bean."
+  [^ZipInputStream zip-is p]
   (loop []
-    (let [entry (.getNextEntry zip-file-or-is)]
+    (let [entry (.getNextEntry zip-is)]
       (if entry
         (if (p (bean entry))
           entry
           (recur))
         (throw (IllegalStateException. "Entry not found")))))
-  zip-file-or-is)
+  zip-is)
 
 (defn get-entry
   "Select an entry for reading by name."
-  [zip-file-or-is name]
-  (find-entry zip-file-or-is #(= name (:name %))))
+  [zip-is name]
+  (find-entry zip-is #(= name (:name %))))
 
 (defn decode-stream
   "Create ZIP stream from stream of encoded data.

@@ -4,6 +4,9 @@ A Clojure library designed to access Finnish code sets.
 
 ## Features
 
+- Requires: Java 1.8
+    - Uses `java.time.LocalDate`
+
 ### Posti - Finnish postal codes code set
 
 Downloads postal codes from Posti FTP server and parses the fixed length

@@ -10,7 +10,7 @@ test:
   override:
     - lein test-out junit $CIRCLE_TEST_REPORTS/lein/results.xml
     - lein cloverage
-deploy:
+deployment:
   master:
     branch: master
     commands:

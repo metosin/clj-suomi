@@ -2,6 +2,8 @@
 
 A Clojure library designed to access Finnish code sets.
 
+[API Docs](http://metosin.github.io/clj-suomi/)
+
 ## Features
 
 - Requires: Java 1.8

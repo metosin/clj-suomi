@@ -24,15 +24,15 @@
   ([spec] (parser spec nil))
   ([spec {:keys [encoding]
           :or {encoding "UTF-8"}}]
-   (fn [line]
-     (let [ss (ByteArrayInputStream. (.getBytes line encoding))
-           buffer (make-array Byte/TYPE 256)]
+   (fn [^String line]
+     (let [ss (ByteArrayInputStream. (.getBytes line (str encoding)))
+           ^bytes buffer (make-array Byte/TYPE 256)]
        (reduce (fn [acc [k n m]]
                  (let [read-n (.read ss buffer 0 n)]
                    (when (not= read-n n)
                      (throw (IllegalStateException. (format "[field: %s] Tried to read %d bytes but read %d" k n read-n))))
                    (if k
-                     (assoc acc k ((or m identity) (trim (String. buffer 0 n encoding))))
+                     (assoc acc k ((or m identity) (trim (String. buffer 0 (int n) (str encoding)))))
                      acc)))
                {}
                spec)))))

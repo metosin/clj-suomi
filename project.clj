@@ -3,4 +3,9 @@
   :url "https://github.com/metosin/clj-suomi"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.7.0"]])
+  :dependencies [[org.clojure/clojure "1.7.0"]]
+  :profiles {:dev {:plugins [[funcool/codeina "0.3.0"]]}}
+  :codeina {:sources ["src"]
+            :target "gh-pages"
+            :src-dir-uri "http://github.com/metosin/clj-suomi/blob/master/"
+            :src-linenum-anchor-prefix "L" })

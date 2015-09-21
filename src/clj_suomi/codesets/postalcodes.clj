@@ -1,8 +1,8 @@
 (ns clj-suomi.codesets.postalcodes
   "Retrieve postal code data from Posti FTP server.
 
-   - Source: http://www.posti.fi/yritysasiakkaat/laheta/postinumeropalvelut/postinumerotiedostot.html
-   - Service description and terms: http://www.posti.fi/liitteet-yrityksille/ehdot/postinumeropalvelut-palvelukuvaus-ja-kayttoehdot.pdf"
+   - [Source](http://www.posti.fi/yritysasiakkaat/laheta/postinumeropalvelut/postinumerotiedostot.html)
+   - [Service description and terms](http://www.posti.fi/liitteet-yrityksille/ehdot/postinumeropalvelut-palvelukuvaus-ja-kayttoehdot.pdf)"
   (:require [clojure.string :as string]
             [clojure.java.io :as io]
             [clj-suomi.parsers.fixed-length-text :as fixed-length-text]
@@ -15,7 +15,9 @@
 ; decompress or download larger file?
 (def url "ftp://postcode:postcode@ftp2.itella.com/PCF_20150921.zip")
 
-(defn date [s]
+(defn date
+  "Parse date in format `yyyyMMdd` to LocalDate"
+  [s]
   (LocalDate/parse s (DateTimeFormatter/ofPattern "yyyyMMdd")))
 
 (def types

@@ -3,7 +3,7 @@
   (:import [java.io ByteArrayInputStream]))
 
 (defn trim
-  "Return trimmed string or nil if the string is empty."
+  "Return trimmed string or `nil` if the string is empty."
   [s]
   (let [s (string/trim s)]
     (if (seq s)
@@ -15,12 +15,14 @@
    Spec should be vector of tuples.
 
    Spec tuples have two mandatory fields and third optional field.
+
    - key: If truthy the read value will be added to the resulting map under this key.
    - length: Length of the field in bytes.
    - (optional) transform: Transformation function, takes in the read and trimmed string.
 
    Options:
-   - :encoding - (optional) Encoding to be used when strings are converted to and from byte-arrays."
+
+   - `:encoding` - (optional) Encoding to be used when strings are converted to and from byte-arrays."
   ([spec] (parser spec nil))
   ([spec {:keys [encoding]
           :or {encoding "UTF-8"}}]

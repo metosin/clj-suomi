@@ -9,7 +9,7 @@ test:
     - mkdir $CIRCLE_TEST_REPORTS/lein
   override:
     - lein test-out junit $CIRCLE_TEST_REPORTS/lein/results.xml
-    - lein cloverage
+    - lein cloverage --coveralls
 deployment:
   master:
     branch: master

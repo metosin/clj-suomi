@@ -61,6 +61,6 @@
 (defn load-postalcodes
   "Download postal code data from Posti FTP and parse to Clojure maps."
   []
-  (with-open [rdr (io/reader (zip/decode-stream (io/input-stream url))
+  (with-open [rdr (io/reader (zip/first-entry (zip/decode-stream (io/input-stream url)))
                              :encoding "ISO-8859-1")]
     (doall (map ->postalcode (line-seq rdr)))))

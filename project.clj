@@ -4,7 +4,9 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]]
-  :profiles {:dev {:plugins [[funcool/codeina "0.3.0"]]
+  :profiles {:dev {:plugins [[funcool/codeina "0.3.0"]
+                             [lein-cloverage "1.0.6"]
+                             [lein-test-out "0.3.1"]]
                    :resource-paths ["test-resources"]}}
   :codeina {:sources ["src"]
             :target "gh-pages"

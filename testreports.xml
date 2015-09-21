@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="ack" package="clojure.tools.nrepl">
+    </testsuite>
+    <testsuite name="render-values" package="clojure.tools.nrepl.middleware">
+    </testsuite>
+    <testsuite name="stacktrace" package="clojure">
+    </testsuite>
+    <testsuite name="ansi" package="io.aviso">
+    </testsuite>
+    <testsuite name="tty" package="aprint">
+    </testsuite>
+    <testsuite name="track" package="clojure.tools.namespace">
+    </testsuite>
+    <testsuite name="uuid" package="clojure">
+    </testsuite>
+    <testsuite name="finger-tree" package="clojure.data">
+    </testsuite>
+    <testsuite name="junit" package="clojure.test">
+    </testsuite>
+    <testsuite name="main" package="clojure">
+    </testsuite>
+    <testsuite name="session" package="clojure.tools.nrepl.middleware">
+    </testsuite>
+    <testsuite name="user">
+    </testsuite>
+    <testsuite name="test" package="clojure">
+    </testsuite>
+    <testsuite name="printer" package="ultra">
+    </testsuite>
+    <testsuite name="dynamic-classpath" package="dynapath">
+    </testsuite>
+    <testsuite name="data" package="clojure">
+    </testsuite>
+    <testsuite name="zip-test" package="clj-suomi.utils">
+        <testcase name="first-entry-test" classname="clj-suomi.utils.zip-test">
+        </testcase>
+        <testcase name="get-entry-test" classname="clj-suomi.utils.zip-test">
+        </testcase>
+        <testcase name="find-entry-test" classname="clj-suomi.utils.zip-test">
+        </testcase>
+    </testsuite>
+    <testsuite name="escape-hatch" package="ultra.printer">
+    </testsuite>
+    <testsuite name="server" package="clojure.tools.nrepl">
+    </testsuite>
+    <testsuite name="util" package="dynapath">
+    </testsuite>
+    <testsuite name="parse" package="clojure.tools.namespace">
+    </testsuite>
+    <testsuite name="edn" package="clojure">
+    </testsuite>
+    <testsuite name="color" package="puget">
+    </testsuite>
+    <testsuite name="pomegranate" package="cemerick">
+    </testsuite>
+    <testsuite name="io" package="clojure.java">
+    </testsuite>
+    <testsuite name="printer" package="fipp">
+    </testsuite>
+    <testsuite name="repl" package="ultra">
+    </testsuite>
+    <testsuite name="protocols" package="clojure.core">
+    </testsuite>
+    <testsuite name="hooke" package="robert">
+    </testsuite>
+    <testsuite name="transport" package="clojure.tools.nrepl">
+    </testsuite>
+    <testsuite name="reload" package="clojure.tools.namespace">
+    </testsuite>
+    <testsuite name="pprint" package="clojure">
+    </testsuite>
+    <testsuite name="interruptible-eval" package="clojure.tools.nrepl.middleware">
+    </testsuite>
+    <testsuite name="hardcore" package="ultra">
+    </testsuite>
+    <testsuite name="utils" package="aprint">
+    </testsuite>
+    <testsuite name="exception" package="io.aviso">
+    </testsuite>
+    <testsuite name="base64" package="clojure.data.codec">
+    </testsuite>
+    <testsuite name="string" package="ultra.test.diff">
+    </testsuite>
+    <testsuite name="printer" package="puget">
+    </testsuite>
+    <testsuite name="pr-values" package="clojure.tools.nrepl.middleware">
+    </testsuite>
+    <testsuite name="core" package="clansi">
+    </testsuite>
+    <testsuite name="instant" package="clojure">
+    </testsuite>
+    <testsuite name="set" package="clojure">
+    </testsuite>
+    <testsuite name="aether" package="cemerick.pomegranate">
+    </testsuite>
+    <testsuite name="dir" package="clojure.tools.namespace">
+    </testsuite>
+    <testsuite name="render" package="whidbey">
+    </testsuite>
+    <testsuite name="postalcodes-test" package="clj-suomi.codesets">
+        <testcase name="smoke-test" classname="clj-suomi.codesets.postalcodes-test">
+        </testcase>
+        <testcase name="date-test" classname="clj-suomi.codesets.postalcodes-test">
+        </testcase>
+        <testcase name="-&gt;postalcode-test" classname="clj-suomi.codesets.postalcodes-test">
+        </testcase>
+    </testsuite>
+    <testsuite name="reducers" package="transduce">
+    </testsuite>
+    <testsuite name="string" package="clojure">
+    </testsuite>
+    <testsuite name="colorscheme" package="ultra">
+    </testsuite>
+    <testsuite name="load-file" package="clojure.tools.nrepl.middleware">
+    </testsuite>
+    <testsuite name="pull" package="vinyasa">
+    </testsuite>
+    <testsuite name="diff" package="ultra.test">
+    </testsuite>
+    <testsuite name="fixed-length-text-test" package="clj-suomi.parsers">
+        <testcase name="encoding-test" classname="clj-suomi.parsers.fixed-length-text-test">
+        </testcase>
+        <testcase name="parser-test" classname="clj-suomi.parsers.fixed-length-text-test">
+        </testcase>
+    </testsuite>
+    <testsuite name="columns" package="io.aviso">
+    </testsuite>
+    <testsuite name="tap" package="clojure.test">
+    </testsuite>
+    <testsuite name="writer" package="aprint">
+    </testsuite>
+    <testsuite name="file" package="clojure.tools.namespace">
+    </testsuite>
+    <testsuite name="nrepl" package="clojure.tools">
+    </testsuite>
+    <testsuite name="reducers" package="clojure.core">
+    </testsuite>
+    <testsuite name="order" package="puget">
+    </testsuite>
+    <testsuite name="repl" package="clojure">
+    </testsuite>
+    <testsuite name="stacktrace" package="ultra">
+    </testsuite>
+    <testsuite name="whidbey" package="ultra.repl">
+    </testsuite>
+    <testsuite name="" package="">
+    </testsuite>
+    <testsuite name="bencode" package="clojure.tools.nrepl">
+    </testsuite>
+    <testsuite name="ansi" package="puget.color">
+    </testsuite>
+    <testsuite name="repl" package="io.aviso">
+    </testsuite>
+    <testsuite name="dependency" package="clojure.tools.namespace">
+    </testsuite>
+    <testsuite name="dispatch" package="aprint">
+    </testsuite>
+    <testsuite name="template" package="clojure">
+    </testsuite>
+    <testsuite name="middleware" package="clojure.tools.nrepl">
+    </testsuite>
+    <testsuite name="repl" package="clojure.tools.namespace">
+    </testsuite>
+    <testsuite name="data" package="puget">
+    </testsuite>
+    <testsuite name="shell" package="clojure.java">
+    </testsuite>
+    <testsuite name="zip" package="clj-suomi.utils">
+    </testsuite>
+    <testsuite name="core" package="aprint">
+    </testsuite>
+    <testsuite name="writer" package="io.aviso">
+    </testsuite>
+    <testsuite name="fixed-length-text" package="clj-suomi.parsers">
+    </testsuite>
+    <testsuite name="core" package="clojure">
+    </testsuite>
+    <testsuite name="misc" package="clojure.tools.nrepl">
+    </testsuite>
+    <testsuite name="test" package="ultra">
+    </testsuite>
+    <testsuite name="inject" package="vinyasa">
+    </testsuite>
+    <testsuite name="walk" package="clojure">
+    </testsuite>
+    <testsuite name="html" package="puget.color">
+    </testsuite>
+    <testsuite name="postalcodes" package="clj-suomi.codesets">
+    </testsuite>
+    <testsuite name="defaults" package="dynapath">
+    </testsuite>
+</testsuites>

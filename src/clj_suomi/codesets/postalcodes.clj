@@ -83,8 +83,8 @@
    - :filename - (optional) Filename to download. By default check the server root for latest PCF_*.zip file.
      If you want to use specific version, provide path to file in `arch` folder."
   ([] (load-postalcodes nil))
-  ([{:keys [filename]}]
-   (let [filename (or filename (find-latest-file))]
+  ([{:keys [filename now?]}]
+   (let [filename (or filename (if now? (file-name-now)) (find-latest-file))]
      (with-open [rdr (io/reader (zip/first-entry (zip/decode-stream (io/input-stream (url filename))))
                                 :encoding "ISO-8859-1")]
        (doall (map ->postalcode (line-seq rdr)))))))

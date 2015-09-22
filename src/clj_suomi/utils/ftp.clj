@@ -8,6 +8,8 @@
       (when (.isConnected ^FTPClient this)
         (try
           (.logout ^FTPClient this)
+          (catch IOException _ nil))
+        (try
           (.disconnect ^FTPClient this)
           (catch IOException _ nil))))))
 
@@ -20,7 +22,7 @@
     :or {port 21}}]
   {:pre [(string? host) (number? port) (string? user) (string? pass)]}
   (doto (closable-ftp-client)
-    (.connect ^String host ^int port)
+    (.connect host port)
     (.login user pass)))
 
 (defn list-files [^FTPClient client]

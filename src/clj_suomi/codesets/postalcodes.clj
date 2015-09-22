@@ -15,7 +15,7 @@
 ; decompress or download larger file?
 (def url "ftp://postcode:postcode@ftp2.itella.com/PCF_20150921.zip")
 
-(defn date
+(defn str->date
   "Parse date in format `yyyyMMdd` to LocalDate"
   [s]
   (LocalDate/parse s (DateTimeFormatter/ofPattern "yyyyMMdd")))
@@ -46,7 +46,7 @@
      [:name-swe 30]
      [:short 12]
      [:short-swe 12]
-     [:start-date 8 date]
+     [:start-date 8 str->date]
      [:type 1 types]
      [:admistrative-area-code 5]
      [:admistrative-area-name 30]

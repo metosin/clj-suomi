@@ -1,32 +1,16 @@
 (ns clj-suomi.utils.ftp
-  (:import [org.apache.commons.net.ftp FTPClient FTPFile]
-           [java.io IOException Closeable]))
+  (:require [clojure.java.io :as io]
+            [clojure.string :as string]))
 
-(defn ^FTPClient closable-ftp-client []
-  (proxy [FTPClient Closeable] []
-    (close []
-      (when (.isConnected ^FTPClient this)
-        (try
-          (.logout ^FTPClient this)
-          (catch IOException _ nil))
-        (try
-          (.disconnect ^FTPClient this)
-          (catch IOException _ nil))))))
+(defn parse-line [line]
+  (-> line
+      (string/split #" ")
+      last))
 
-(defn client
-  "Create FTPClient with given options.
-
-   Remember to close the connection either manually or by
-   using this with `with-open`."
-  [{:keys [host port user pass]
-    :or {port 21}}]
-  {:pre [(string? host) (number? port) (string? user) (string? pass)]}
-  (doto (closable-ftp-client)
-    (.connect host port)
-    (.login user pass)))
-
-(defn list-files [^FTPClient client]
-  (.listFiles client))
-
-(defn list-file-names [^FTPClient client]
-  (map #(.getName ^FTPFile %) (list-files client)))
+(defn list-file-names
+  "Parses FTP directory listing and returns the filenames."
+  [url]
+  (->> (io/input-stream url)
+       io/reader
+       line-seq
+       (map parse-line)))

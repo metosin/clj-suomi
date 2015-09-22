@@ -3,18 +3,17 @@
             [clj-suomi.utils.ftp :refer :all]
             [clojure.java.io :as io]))
 
-(def test-ftp {:host "ftp.funet.fi"
-               :user "anonymous"
-               :pass ""})
+(def test-ftp "ftp://ftp.funet.fi")
 
-(comment
-  (with-open [conn (client test-ftp)]
-    (is (clojure.set/subset?
+(deftest parse-line-test
+  (is (= "favicon.ico"
+         (parse-line "-rwxr-xr-x    1 0          0                1078 Apr  7      2006 favicon.ico")))
+  (is (= "pub"
+         (parse-line "drwxrwxr-x   45 108        42                 57 Mar 27  2013 pub")))
+  (is (= "java-is-now-under-pub-languages-java"
+         (parse-line "drwxrwsr-x    5 819        50019               5 Mar 31  2003 java-is-now-under-pub-languages-java"))))
+
+(deftest list-file-names-test
+  (is (clojure.set/subset?
           #{"README" "dev" "favicon.ico" "ftp" "incoming" "index" "pub" "rfc"}
-          (set (list-file-names conn))))))
-
-(comment
-  (let [conn (client test-ftp)]
-    (with-open [conn conn]
-      (is (.isConnected conn)))
-    (is (not (.isConnected conn)))))
+          (set (list-file-names test-ftp)))))

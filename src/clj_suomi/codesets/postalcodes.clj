@@ -11,15 +11,11 @@
   (:import [java.time LocalDate]
            [java.time.format DateTimeFormatter]))
 
-; FIXME: The filename changes everyweek
 ; Also available uncompressed. Is it faster to download compressed and
 ; decompress or download larger file?
-(def ftp {:host "ftp2.itella.com"
-          :user "postcode"
-          :pass "postcode"})
-
+(def base-url "ftp://postcode:postcode@ftp2.itella.com")
 (defn url [filename]
-  (format "ftp://%s:%s@%s/%s" (:user ftp) (:pass ftp) (:host ftp) filename))
+  (format "%s/%s" base-url filename))
 
 (def date-formatter (DateTimeFormatter/ofPattern "yyyyMMdd"))
 
@@ -67,10 +63,9 @@
     {:encoding "ISO-8859-1"}))
 
 (defn find-latest-file []
-  (with-open [conn (ftp/client ftp)]
-    (->> (ftp/list-file-names conn)
-         (filter #(re-find #"PCF_.*\.zip" %))
-         first)))
+  (->> (ftp/list-file-names base-url)
+       (filter #(re-find #"PCF_.*\.zip" %))
+       first))
 
 (defn file-name-now []
   (format "PCF_%s.zip" (.format date-formatter (LocalDate/now))))

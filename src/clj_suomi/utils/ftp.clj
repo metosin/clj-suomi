@@ -10,7 +10,8 @@
 (defn list-file-names
   "Parses FTP directory listing and returns the filenames."
   [url]
-  (->> (io/input-stream url)
-       io/reader
-       line-seq
-       (map parse-line)))
+  (with-open [is (io/input-stream url)]
+    (->> (io/reader is)
+         line-seq
+         (map parse-line)
+         doall)))

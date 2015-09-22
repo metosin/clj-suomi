@@ -1,4 +1,4 @@
-(defproject metosin/clj-suomi "0.1.0-SNAPSHOT"
+(defproject metosin/clj-suomi "0.1.0"
   :description "Access Finnish code sets"
   :url "https://github.com/metosin/clj-suomi"
   :license {:name "Eclipse Public License"

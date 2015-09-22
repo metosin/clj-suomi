@@ -1,7 +1,8 @@
 (ns clj-suomi.utils.ftp-test
   (:require [clojure.test :refer :all]
             [clj-suomi.utils.ftp :refer :all]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+            [clojure.set :as set]))
 
 (def test-ftp "ftp://ftp.funet.fi")
 
@@ -14,6 +15,6 @@
          (parse-line "drwxrwsr-x    5 819        50019               5 Mar 31  2003 java-is-now-under-pub-languages-java"))))
 
 (deftest list-file-names-test
-  (is (clojure.set/subset?
+  (is (set/subset?
           #{"README" "dev" "favicon.ico" "ftp" "incoming" "index" "pub" "rfc"}
           (set (list-file-names test-ftp)))))

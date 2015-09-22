@@ -3,8 +3,8 @@
             [clj-suomi.codesets.postalcodes :refer :all])
   (:import [java.time LocalDate]))
 
-(deftest date-test
-  (is (= (LocalDate/of 2015 1 1) (date "20150101"))))
+(deftest str->date-test
+  (is (= (LocalDate/of 2015 1 1) (str->date "20150101"))))
 
 (deftest ->postalcode-test
   (testing "full-data"

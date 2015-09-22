@@ -4,11 +4,15 @@
     </testsuite>
     <testsuite name="render-values" package="clojure.tools.nrepl.middleware">
     </testsuite>
+    <testsuite name="ftp-test" package="clj-suomi.utils">
+    </testsuite>
     <testsuite name="stacktrace" package="clojure">
     </testsuite>
     <testsuite name="ansi" package="io.aviso">
     </testsuite>
     <testsuite name="tty" package="aprint">
+    </testsuite>
+    <testsuite name="ftp" package="clj-suomi.utils">
     </testsuite>
     <testsuite name="track" package="clojure.tools.namespace">
     </testsuite>
@@ -101,7 +105,7 @@
     <testsuite name="postalcodes-test" package="clj-suomi.codesets">
         <testcase name="smoke-test" classname="clj-suomi.codesets.postalcodes-test">
         </testcase>
-        <testcase name="date-test" classname="clj-suomi.codesets.postalcodes-test">
+        <testcase name="str-&gt;date-test" classname="clj-suomi.codesets.postalcodes-test">
         </testcase>
         <testcase name="-&gt;postalcode-test" classname="clj-suomi.codesets.postalcodes-test">
         </testcase>

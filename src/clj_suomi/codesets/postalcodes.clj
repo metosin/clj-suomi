@@ -21,10 +21,12 @@
 (defn url [filename]
   (format "ftp://%s:%s@%s/%s" (:user ftp) (:pass ftp) (:host ftp) filename))
 
+(def date-formatter (DateTimeFormatter/ofPattern "yyyyMMdd"))
+
 (defn str->date
   "Parse date in format `yyyyMMdd` to LocalDate"
   [s]
-  (LocalDate/parse s (DateTimeFormatter/ofPattern "yyyyMMdd")))
+  (LocalDate/parse s date-formatter))
 
 (def types
   {"1" :normal
@@ -70,11 +72,15 @@
          (filter #(re-find #"PCF_.*\.zip" %))
          first)))
 
+(defn file-name-now []
+  (format "PCF_%s.zip" (.format date-formatter (LocalDate/now))))
+
 (defn load-postalcodes
   "Download postal code data from Posti FTP and parse to Clojure maps.
 
    Options:
-   - (optional) filename to download. By default check the server root for latest PCF_*.zip file.
+   - :now?     - If filename is not provided, try current date.
+   - :filename - (optional) Filename to download. By default check the server root for latest PCF_*.zip file.
      If you want to use specific version, provide path to file in `arch` folder."
   ([] (load-postalcodes nil))
   ([{:keys [filename]}]

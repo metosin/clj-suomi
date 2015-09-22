@@ -1,7 +1,8 @@
 (ns clj-suomi.codesets.postalcodes-test
   (:require [clojure.test :refer :all]
             [clj-suomi.codesets.postalcodes :refer :all])
-  (:import [java.time LocalDate]))
+  (:import [java.time LocalDate]
+           [java.time.format DateTimeFormatter]))
 
 (deftest str->date-test
   (is (= (LocalDate/of 2015 1 1) (str->date "20150101"))))
@@ -34,7 +35,7 @@
                               "1"))
            ))))
 
-(def postalcodes (load-postalcodes))
+(def postalcodes (load-postalcodes {:now? true}))
 
 (println (format "[postalcodes] Loaded %d codes" (count postalcodes)))
 

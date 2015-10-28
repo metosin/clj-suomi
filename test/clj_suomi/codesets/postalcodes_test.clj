@@ -35,7 +35,7 @@
                               "1"))
            ))))
 
-(def postalcodes (load-postalcodes {:now? true}))
+(def postalcodes (load-postalcodes))
 
 (println (format "[postalcodes] Loaded %d codes" (count postalcodes)))
 

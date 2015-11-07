@@ -1,4 +1,4 @@
-# clj-suomi [![Circle CI](https://circleci.com/gh/metosin/clj-suomi.svg?style=shield)](https://circleci.com/gh/metosin/clj-suomi) [![codecov.io](http://codecov.io/github/metosin/clj-suomi/coverage.svg?branch=master)](http://codecov.io/github/metosin/clj-suomi?branch=master) [![Dependencies Status](http://jarkeeper.com/metosin/clj-suomi/status.svg)](http://jarkeeper.com/metosin/clj-suomi)
+# clj-suomi [![Circle CI](https://circleci.com/gh/metosin/clj-suomi.svg?style=shield)](https://circleci.com/gh/metosin/clj-suomi) [![Dependencies Status](http://jarkeeper.com/metosin/clj-suomi/status.svg)](http://jarkeeper.com/metosin/clj-suomi)
 
 [![Clojars Project](http://clojars.org/metosin/clj-suomi/latest-version.svg)](http://clojars.org/metosin/clj-suomi)
 

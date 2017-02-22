@@ -1,19 +1,18 @@
 machine:
   java:
     version: oraclejdk8
-general:
-  artifacts:
-    - target/coverage
-test:
-  pre:
-    - mkdir $CIRCLE_TEST_REPORTS/lein
+  environment:
+    BOOT_VERSION: 2.7.1
+    _JAVA_OPTIONS: "-Xms512m -Xmx1024m"
+dependencies:
+  cache_directories:
+    - "~/.boot/cache/lib"
+    - "~/.boot/cache/bin"
   override:
-    - lein test-out junit $CIRCLE_TEST_REPORTS/lein/results.xml
-    - CLOVERAGE_VERSION=1.0.7-SNAPSHOT lein cloverage --codecov && bash <(curl -s https://codecov.io/bash) -f target/coverage/codecov.json
-deployment:
-  master:
-    branch: master
-    commands:
-      - git config --global user.name "CircleCI"
-      - git config --global user.email "nisotem@metosin.fi"
-      - ./scripts/build-docs.sh
+    - curl -L https://github.com/boot-clj/boot-bin/releases/download/latest/boot.sh -o ~/bin/boot
+    - chmod +x ~/bin/boot
+    - mkdir -p ~/.boot
+    - boot test
+test:
+  override:
+    - echo 1

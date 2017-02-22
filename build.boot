@@ -2,9 +2,17 @@
   :resource-paths #{"src"}
   :source-paths #{"test-resources" "test"}
   :dependencies '[[org.clojure/clojure "1.8.0" :scope "provided"]
+                  [org.clojure/clojurescript "1.9.293" :scope "provided"]
+
+                  [adzerk/boot-cljs "2.0.0-SNAPSHOT" :scope "test"]
+                  [crisptrutski/boot-cljs-test "0.4.0-SNAPSHOT" :scope "test"]
+                  [doo "0.1.7" :scope "test"]
                   [metosin/boot-alt-test "0.3.0" :scope "test"]])
 
-(require '[metosin.boot-alt-test :refer [alt-test]])
+(require
+  '[adzerk.boot-cljs      :refer [cljs]]
+  '[metosin.boot-alt-test  :refer [alt-test]]
+  '[crisptrutski.boot-cljs-test :refer [test-cljs prep-cljs-tests run-cljs-tests]])
 
 (def +version+ "0.2.0-SNAPSHOT")
 
@@ -18,7 +26,9 @@
 (ns-unmap *ns* 'test)
 
 (deftask test []
-  (alt-test))
+  (comp
+    (alt-test)
+    (test-cljs)))
 
 (deftask build []
   (comp

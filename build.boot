@@ -5,7 +5,7 @@
                   [org.clojure/clojurescript "1.9.293" :scope "provided"]
 
                   [adzerk/boot-cljs "2.0.0-SNAPSHOT" :scope "test"]
-                  [crisptrutski/boot-cljs-test "0.4.0-SNAPSHOT" :scope "test"]
+                  [crisptrutski/boot-cljs-test "0.3.0" :scope "test"]
                   [doo "0.1.7" :scope "test"]
                   [metosin/boot-alt-test "0.3.0" :scope "test"]])
 

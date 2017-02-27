@@ -10,8 +10,8 @@
                   [metosin/boot-alt-test "0.3.0" :scope "test"]])
 
 (require
-  '[adzerk.boot-cljs      :refer [cljs]]
-  '[metosin.boot-alt-test  :refer [alt-test]]
+  '[adzerk.boot-cljs            :refer [cljs]]
+  '[metosin.boot-alt-test       :refer [alt-test]]
   '[crisptrutski.boot-cljs-test :refer [test-cljs prep-cljs-tests run-cljs-tests]])
 
 (def +version+ "0.2.0-SNAPSHOT")
@@ -21,6 +21,7 @@
        :version +version+
        :description "Access Finnish code sets"
        :url "https://github.com/metosin/clj-suomi"
+       :scm {:url "https://github.com/metosin/clj-suomi"}
        :license {"Eclipse Public License" "http://www.eclipse.org/legal/epl-v10.html"}})
 
 (ns-unmap *ns* 'test)

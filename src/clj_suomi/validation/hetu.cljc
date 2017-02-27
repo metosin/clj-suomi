@@ -1,7 +1,7 @@
 (ns clj-suomi.validation.hetu
   "Validator for Finnish personal identifaction codes (henkilötunnus/hetu).
 
-  > (require '[clj-suomi.validators.hetu :as hetu])
+  > (require '[clj-suomi.validation.hetu :as hetu])
   > (hetu/valid? \"010170-0205\")
   true"
   #?(:cljs (:require goog.date.Date))

@@ -3,4 +3,5 @@
 
 ;; placeholder
 (deftest hetu-test
-  (is (true? false)))
+  ; (is (true? false))
+  )

@@ -1,19 +1,17 @@
 (ns clj-suomi.codesets.postalcodes
-  "Retrieve postal code data from Posti FTP server.
+  "Retrieve postal code data from Posti HTTP server.
 
    - [Source](http://www.posti.fi/yritysasiakkaat/laheta/postinumeropalvelut/postinumerotiedostot.html)
    - [Service description and terms](http://www.posti.fi/liitteet-yrityksille/ehdot/postinumeropalvelut-palvelukuvaus-ja-kayttoehdot.pdf)"
   (:require [clojure.string :as string]
             [clojure.java.io :as io]
             [clj-suomi.parsers.fixed-length-text :as fixed-length-text]
-            [clj-suomi.utils.ftp :as ftp]
             [clj-suomi.utils.zip :as zip])
   (:import [java.time LocalDate]
            [java.time.format DateTimeFormatter]))
 
-; Also available uncompressed. Is it faster to download compressed and
-; decompress or download larger file?
-(def base-url "ftp://postcode:postcode@ftp2.itella.com")
+(def base-url "https://www.posti.fi/webpcode/")
+
 (defn url [filename]
   (format "%s/%s" base-url filename))
 
@@ -62,13 +60,18 @@
     ; Character widths break with UTF-8
     {:encoding "ISO-8859-1"}))
 
-(defn find-latest-file []
-  (->> (ftp/list-file-names base-url)
-       (filter #(re-find #"PCF_.*\.zip" %))
-       first))
+(defn find-latest-file
+  "Finds a href to PCF_ file in the directory root."
+  []
+  (->> (slurp base-url)
+       (re-find #"\"http[s]?://www\.posti\.fi/webpcode/(PCF_.*\.zip)\"")
+       second))
+
+(comment
+  (find-latest-file))
 
 (defn load-postalcodes
-  "Download postal code data from Posti FTP and parse to Clojure maps.
+  "Download postal code data from Posti HTTP and parse to Clojure maps.
 
    Options:
    - :filename - (optional) Filename to download. By default check the server root for latest PCF_*.zip file.

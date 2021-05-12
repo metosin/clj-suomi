@@ -3,8 +3,7 @@
 
    - [Source](http://www.posti.fi/yritysasiakkaat/laheta/postinumeropalvelut/postinumerotiedostot.html)
    - [Service description and terms](http://www.posti.fi/liitteet-yrityksille/ehdot/postinumeropalvelut-palvelukuvaus-ja-kayttoehdot.pdf)"
-  (:require [clojure.string :as string]
-            [clojure.java.io :as io]
+  (:require [clojure.java.io :as io]
             [clj-suomi.parsers.fixed-length-text :as fixed-length-text]
             [clj-suomi.utils.zip :as zip])
   (:import [java.time LocalDate]
@@ -12,8 +11,8 @@
 
 (def base-url "https://www.posti.fi/webpcode/")
 
-(defn url [filename]
-  (format "%s/%s" base-url filename))
+(defn posti-url [filename]
+  (str base-url filename))
 
 (def date-formatter (DateTimeFormatter/ofPattern "yyyyMMdd"))
 
@@ -79,6 +78,6 @@
   ([] (load-postalcodes nil))
   ([{:keys [filename now?]}]
    (let [filename (or filename (find-latest-file))]
-     (with-open [rdr (io/reader (zip/first-entry (zip/decode-stream (io/input-stream (url filename))))
+     (with-open [rdr (io/reader (zip/first-entry (zip/decode-stream (io/input-stream (posti-url filename))))
                                 :encoding "ISO-8859-1")]
        (doall (map ->postalcode (line-seq rdr)))))))

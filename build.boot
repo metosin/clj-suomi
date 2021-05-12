@@ -14,7 +14,7 @@
   '[metosin.boot-alt-test       :refer [alt-test]]
   '[crisptrutski.boot-cljs-test :refer [test-cljs prep-cljs-tests run-cljs-tests]])
 
-(def +version+ "0.2.0-SNAPSHOT")
+(def +version+ "0.2.1")
 
 (task-options!
   pom {:project 'metosin/clj-suomi

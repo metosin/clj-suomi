@@ -9,7 +9,7 @@
   (:import [java.time LocalDate]
            [java.time.format DateTimeFormatter]))
 
-(def base-url "https://www.posti.fi/webpcode/")
+(def base-url "https://www.posti.fi/webpcode")
 
 (defn posti-url [filename]
   (str base-url filename))

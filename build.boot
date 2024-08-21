@@ -14,7 +14,7 @@
   '[metosin.boot-alt-test       :refer [alt-test]]
   '[crisptrutski.boot-cljs-test :refer [test-cljs prep-cljs-tests run-cljs-tests]])
 
-(def +version+ "0.2.1")
+(def +version+ "0.2.2")
 
 (task-options!
   pom {:project 'metosin/clj-suomi
@@ -47,4 +47,4 @@
 (deftask deploy []
   (comp
     (build)
-    (push :repo "clojars" :gpg-sign (not (.endsWith +version+ "-SNAPSHOT")))))
+    (push :repo "clojars" :gpg-sign false)))
